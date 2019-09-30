@@ -55,33 +55,3 @@ The parquet files loaded back to S3 contain the data in terms of a star schema. 
 The parquet files can be used to quickly load the data in e.g. an in-memory database for analytics. Of course, they can also be used to query the data-lake directly by using e.g. Amazon Athena.
 
 
-# Files in the
- 
-
-	 
-
-
- 
-
-The major part of the project is to design a data model which best suits the analytics needs. Further, an ETL pipeline, which loads and transforms the raw JSON data into the database must be developed. The underlaying database technology is Postgres. Files in the Repository
-The repository contains the following files/folders:
-# Summary of the Datamodel
-The Datamodel is based on a Star Schema an consist of the following tables:
-
- - **Dimension Tables**:
-	 1.  **users** - users of Sparkify
-![users dimension table](https://github.com/chrisk2b/Datamodelling-Postgres/blob/master/images/users.PNG)
-    -   _user_id, first_name, last_name, gender, level_
-      2.  **songs** - songs in music database
-    -   _song_id, title, artist_id, year, duration_
-   3. **artists** - artists in music database
-    -   _artist_id, name, location, latitude, longitude_
-   5.  **time** - timestamps of records in **songplays** (cf. fact tables below) broken down into specific units
-    -   _start_time, hour, day, week, month, year, weekday_
- - **Fact Tables**:
-    1.  **songplays** - records in log data associated with song plays 
-
-	-   _songplay_id, start_time, user_id, level, song_id, artist_id, session_id, location, user_agent_
-
-# Files in the Repositoty
-The following files/folders are contained in the reposi
